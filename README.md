@@ -40,7 +40,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [2016] [Jasmine Farrell]
+    Copyright [2016] [Jasmine Farrell and Veronika Kotckovich (Veronika-Kot)]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
