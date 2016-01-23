@@ -1,6 +1,6 @@
 Instagram Feed
 
-# Lab 1 - *MovieHub*
+# Lab 1 - *Instagram App*
 
 **Instagram Feed** This exercise is to practice using table views by building a simple Instagram app.
 
