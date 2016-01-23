@@ -30,7 +30,7 @@ Time spent: **2** hours spent in total
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://github.com/jasmineiris/Instagram/Instagram.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://github.com/jasmineiris/Instagram/blob/master/Instagram.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
