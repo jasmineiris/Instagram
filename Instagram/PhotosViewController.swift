@@ -15,11 +15,11 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
     var pictures: [NSDictionary]!
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.rowHeight = 320;
-        
+        tableView.rowHeight = 320
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -68,9 +68,7 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
         } else {
             return 0
         }
-    }
-    
-
+    }    
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
@@ -81,7 +79,14 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
         //let baseUrl = ""
         let imageUrl = NSURL(string: photo)
         cell.instagramPhoto.setImageWithURL(imageUrl!)
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
         return cell
+    }
+    
+    func tableView(tableView: UITableView,didSelectRowAtIndexPath indexPath: NSIndexPath){
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     
@@ -96,15 +101,43 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
         profileView.layer.borderColor = UIColor(white: 0.7, alpha: 0.8).CGColor
         profileView.layer.borderWidth = 1;
         
+        let usernameView = UILabel(frame: CGRectMake(0, 0, 100, 21))
+        usernameView.center = CGPointMake(100, 25)
+        usernameView.textAlignment = NSTextAlignment.Left
+        usernameView.font = UIFont(name: "Helvetica-Bold", size: 14)
+        usernameView.textColor = UIColor(red: 0.247, green: 0.4471, blue: 0.608, alpha: 1.0)
+        
+     //   if let photos = photos {
+       //     profileView.setImageWithURL( NSURL(string: photos[section]["user"]!["profile_picture"] as! String)!
+         //   )
+           // usernameView.text = photos[section]["user"]!["username"] as? String;
+        //}
+        
         // Use the section number to get the right URL
         // profileView.setImageWithURL(...)
         
         headerView.addSubview(profileView)
-        
+        headerView.addSubview(usernameView)
         // Add a UILabel for the username here
-        
         return headerView
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let cell = sender as! UITableViewCell
+        let indexpath = tableView.indexPathForCell(cell)
+        let photos = pictures![indexpath!.row]
+        let photoDetailViewController = segue.destinationViewController as! PhotoDetailsViewController
+        
+        photoDetailViewController.photos = photos
+        print("prapare for segue")
+        
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
     }
 
 }
-
